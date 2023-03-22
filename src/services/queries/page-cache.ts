@@ -10,4 +10,10 @@ export const getCachedPage = (route: string) => {
 	return null;
 };
 
-export const setCachedPage = (route: string, page: string) => {};
+export const setCachedPage = (route: string, page: string) => {
+	if (cacheRoutes.includes(route)) {
+		return client.set('pagecache#' + route, page, {
+			EX: 2
+		});
+	}
+};
