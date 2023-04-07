@@ -7,4 +7,4 @@ export const usernamesKey = () => `usersnames`;
 
 // Items
 export const itemsKey = (itemId: string) => `items#${itemId}`;
-export const itemsByViewsKet = () => 'items:views';
+export const itemsByViewsKey = () => 'items:views';
