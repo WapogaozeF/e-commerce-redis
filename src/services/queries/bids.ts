@@ -10,7 +10,12 @@ export const createBid = async (attrs: CreateBidAttrs) => {
 };
 
 export const getBidHistory = async (itemId: string, offset = 0, count = 10) => {
-	return [];
+	const startIndex = -1 * offset - count;
+	const endIndex = -1 - offset;
+
+	const range = await client.lRange(bidHistoryKey(itemId), startIndex, endIndex);
+
+	return range.map((bid) => deserializeHistory(bid));
 };
 
 const serializeHistory = (amount: number, createdAt: number) => {
