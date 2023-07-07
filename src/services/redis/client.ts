@@ -44,12 +44,6 @@ const client = createClient({
 	}
 });
 
-client.on('connect', async () => {
-	await client.addOneAndStore('books:count', 10);
-	const results = await client.get('books:count');
-	console.log(results);
-});
-
 client.on('error', (err) => console.error(err));
 client.connect();
 
