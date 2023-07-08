@@ -1,6 +1,5 @@
 import { randomBytes } from 'crypto';
 import { client } from './client';
-import { build } from '$service-worker';
 
 export const withLock = async (key: string, cb: (redisClient: Client, signal: any) => any) => {
 	const retryDelayMs = 100;
